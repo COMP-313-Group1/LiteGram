@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import FirebaseContext from './context/firebase';
 import { fireBase, FieldValue } from './lib/firebase';
+import './styles/app.css';
 
 function FireBaseWrapper() {
   const fireBaseProviderValue = useMemo(
@@ -12,9 +13,7 @@ function FireBaseWrapper() {
 
   return (
     <FirebaseContext.Provider value={fireBaseProviderValue}>
-      <StrictMode>
-        <App />
-      </StrictMode>
+      <App />
     </FirebaseContext.Provider>
   );
 }
