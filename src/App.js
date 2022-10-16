@@ -4,18 +4,20 @@ import * as ROUTES from './constants/routes';
 
 // for lazy loading
 const Login = lazy(() => import('./pages/login'));
+const SignUp = lazy(() => import('./pages/sign-up'));
+const NotFound = lazy(() => import('./pages/not-found'));
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          {/* from version 6 it is element instead of component */}
           <Route path={ROUTES.LOGIN} element={<Login />} />
+          <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </Router>
   );
 }
-
-export default App;

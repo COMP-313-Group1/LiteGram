@@ -7,7 +7,7 @@ import './styles/app.css';
 
 function FireBaseWrapper() {
   const fireBaseProviderValue = useMemo(
-    () => ({ fireBase, FieldValue }),
+    () => ({ firebase: fireBase, FieldValue }),
     [fireBase, FieldValue]
   );
 
