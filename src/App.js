@@ -13,16 +13,16 @@ export default function App() {
   const { user } = useAuthListener();
   return (
     <UserContext.Provider value={{ user }}>
-    <Router>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path={ROUTES.LOGIN} element={<Login />} />
-          <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
-          <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-          <Route component={NotFound} />
-        </Routes>
-      </Suspense>
-    </Router>
+      <Router>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Routes>
+            <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+            <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+            <Route component={NotFound} />
+          </Routes>
+        </Suspense>
+      </Router>
     </UserContext.Provider>
   );
 }
