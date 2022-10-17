@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import UserContext from './context/user';
@@ -9,10 +9,14 @@ const Login = lazy(() => import('./pages/login'));
 const SignUp = lazy(() => import('./pages/sign-up'));
 const NotFound = lazy(() => import('./pages/not-found'));
 const Dashboard = lazy(() => import('./pages/dashboard'));
+
 export default function App() {
   const { user } = useAuthListener();
+
+  const userProvider = useMemo(() => ({ user }), [user]);
+
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={userProvider}>
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
           <Routes>

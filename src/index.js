@@ -1,4 +1,4 @@
-import { React, StrictMode, useMemo } from 'react';
+import { React, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import FirebaseContext from './context/firebase';

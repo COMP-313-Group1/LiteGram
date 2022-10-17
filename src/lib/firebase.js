@@ -1,8 +1,3 @@
-// v8
-// import Firebase from 'firebase/app';
-// import 'firebase/firestore';
-// import 'firebase/auth';
-
 // from v9 compat
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
