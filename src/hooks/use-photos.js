@@ -10,12 +10,12 @@ export default function usePhotos() {
 
   useEffect(() => {
     async function getTimelinePhotos() {
-      const { following } = await getUserByUserId(userId);
+      const [user] = await getUserByUserId(userId);
       let followedUserPhotos = [];
 
       // does the user actually follow people
-      if (following.length > 0) {
-        followedUserPhotos = await getPhotos(userId, following);
+      if (user.following) {
+        followedUserPhotos = await getPhotos(userId, user.following);
       }
 
       followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
