@@ -587,11 +587,11 @@ video {
 .w-2\/5 {
   width: 40%;
 }
-.w-16 {
-  width: 4rem;
-}
 .w-40 {
   width: 10rem;
+}
+.w-16 {
+  width: 4rem;
 }
 .max-w-screen-lg {
   max-width: 1024px;
