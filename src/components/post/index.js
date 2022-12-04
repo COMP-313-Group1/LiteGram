@@ -5,6 +5,7 @@ import Image from './image';
 import Actions from './actions';
 import Footer from './footer';
 import Comments from './comments';
+import React from 'react'
 
 export default function Post({ content }) {
   const commentInput = useRef(null);

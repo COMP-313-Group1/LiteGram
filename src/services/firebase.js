@@ -1,3 +1,4 @@
+import { func } from 'prop-types';
 import { fireBase, FieldValue } from '../lib/firebase';
 
 export async function doesUsernameExist(username) {
@@ -140,4 +141,16 @@ export async function isUserFollowingProfile(
   }));
 
   return response.userId;
+}
+
+export async function toggleFollow(isFollowingProfile, activeUserDocId, profileDocId, profileUserId, followingUserId) {
+// 1st pram : primary user doc id 
+// 2nd pram : second users user id
+// 3rd pram : is the user following this profile? e.g. does the primary user know the secondary user? (True/False)
+ 
+await updateLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowingProfile);
+// 1st pram : primary user user id 
+// 2nd pram : second users doc id
+// 3rd pram : is the user following this profile? e.g. does the primary user follow the secondary user? (True/False)
+await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
 }
