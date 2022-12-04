@@ -8,8 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "date-fns": "^2.29.3",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "firebase": "^9.10.0",
     "node": "^19.2.0",
+=======
+    "firebase": "^9.14.0",
+    "loadtest": "^5.2.0",
+>>>>>>> 38e7f42c0a8ea4b0523979bbaa8b925828ad62d5
 =======
     "firebase": "^9.14.0",
     "loadtest": "^5.2.0",
