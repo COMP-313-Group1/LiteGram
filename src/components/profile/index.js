@@ -1,16 +1,15 @@
-import { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Photos from './photos';
 import { getUserPhotosByUsername } from '../../services/firebase';
-import React from 'react'
 
 export default function Profile({ user }) {
   const reducer = (state, newState) => ({ ...state, ...newState });
   const initialState = {
     profile: {},
     photosCollection: [],
-    followerCount: 0 
+    followerCount: 0,
   };
   const [{ profile, photosCollection, followerCount }, dispatch] = useReducer(
     reducer,
@@ -38,11 +37,10 @@ export default function Profile({ user }) {
         setFollowerCount={dispatch}
       />
       <Photos photos={photosCollection} />
-      
     </>
   );
 }
- 
+
 Profile.propTypes = {
   user: PropTypes.shape({
     dateCreated: PropTypes.number.isRequired,
