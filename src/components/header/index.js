@@ -150,7 +150,10 @@ export default function Header({ setPostPopup, postPopup }) {
                 <button
                   type="button"
                   title="Sign Out"
-                  onClick={() => firebase.auth().signOut()}
+                  onClick={() => {
+                    firebase.auth().signOut();
+                    navigate(ROUTES.LOGIN);
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
