@@ -168,3 +168,18 @@ export async function toggleFollow(
     isFollowingProfile
   );
 }
+
+export async function filteredSearch(query) {
+  const result = await fireBase
+    .firestore()
+    .collection('users')
+    .where('username', '>=', query.toLowerCase())
+    .get();
+
+  const users = result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id,
+  }));
+
+  return users;
+}

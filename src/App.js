@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import UserContext from './context/user';
 import useAuthListener from './hooks/use-auth-listener';
-
 import ProtectedRoute from './helpers/protected-route';
 import IsUserLoggedIn from './helpers/is-user-logged-in';
 
