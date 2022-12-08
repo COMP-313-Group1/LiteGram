@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 import * as ROUTES from '../../constants/routes';
+import { DEFAULT_IMAGE_PATH } from '../../constants/paths';
 import { filteredSearch } from '../../services/firebase';
 import SearchDropdownMenu from './search-dropdown';
 
@@ -172,6 +173,9 @@ export default function Header({ setPostPopup, postPopup }) {
                       className="rounded-full h-8 w-8 flex"
                       src={`/images/avatars/${user.displayName}.jpg`}
                       alt={`${user.displayName} profile`}
+                      onError={(e) => {
+                        e.target.src = DEFAULT_IMAGE_PATH;
+                      }}
                     />
                   </Link>
                 </div>

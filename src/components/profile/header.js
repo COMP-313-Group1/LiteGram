@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
 import useUser from '../../hooks/use-user';
+import { DEFAULT_IMAGE_PATH } from '../../constants/paths';
 import { isUserFollowingProfile, toggleFollow } from '../../services/firebase';
 
 export default function Header({
@@ -58,6 +59,9 @@ export default function Header({
             className="rounded-full h-40 w-40 flex"
             alt={`${user.username} profile picture`}
             src={`/images/avatars/${profileUsername}.jpg`}
+            onError={(e) => {
+              e.target.src = DEFAULT_IMAGE_PATH;
+            }}
           />
         )}
       </div>

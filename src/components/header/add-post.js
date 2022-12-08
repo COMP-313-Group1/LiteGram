@@ -62,27 +62,43 @@ export default function PostPopup({ user, setPostPopup }) {
     >
       <div className="flex flex-col z-50 h-screen justify-center items-center mx-24">
         <div
-          className="relative flex flex-col justify-center items-center bg-white rounded-lg h-520-px lg:w-700-px sm:w-450-px sm:h-718-px"
+          className="relative flex flex-col justify-center items-center border-solid border-2 drop-shadow-2xl shadow-black-faded bg-white rounded-lg h-520-px lg:w-700-px sm:w-450-px sm:h-718-px"
           onClick={handleClick}
         >
-          <h4 className="absolute top-2 pb-2 border-b w-full text-center border-gray-primary font-semibold">
-            Create new post
-          </h4>
-          {post.imageSrc !== null && post.caption !== '' && (
-            <button
-              type="button"
-              className="text-blue-medium text-sm font-semibold absolute top-2.5 right-3"
-              onClick={addPostToFirebase}
-            >
-              Share
-            </button>
-          )}
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <h4 className="absolute top-2 pb-2 border-b w-full text-center border-gray-primary font-semibold">
+              Create new post
+            </h4>
+            {post.imageSrc !== null && post.caption !== '' && (
+              <button
+                type="button"
+                className="text-blue-medium text-sm font-semibold absolute top-2.5 right-3"
+                onClick={addPostToFirebase}
+              >
+                Share
+              </button>
+            )}
+          </div>
           {post.imageSrc === null && (
             <>
-              <div className="relative">
+              <div>
+                {/* <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-24 w-24 rotate-12 bottom-0 right-minus-35-px z-0 mt-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="0.4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-20 w-20 -rotate-12 absolute left-minus-35-px top-0 z-20"
+                  className="h-20 w-20 -rotate-12 left-minus-35-px top-10 z-0 mb-2 mt-10"
                   fill="white"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -94,37 +110,27 @@ export default function PostPopup({ user, setPostPopup }) {
                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-24 w-24 rotate-12 bottom-0 right-minus-35-px z-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="0.4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                  />
-                </svg>
               </div>
-              <p className="font-thin text-2xl">Drag photos and videos here</p>
-              <form
-                className="flex items-center justify-center mt-4"
-                onSubmit={handleSubmit}
-              >
-                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label className="px-3 py-1 rounded-md bg-blue-medium text-white text-sm font-semibold">
-                  Select from computer
-                  <input
-                    type="file"
-                    accept="image/*,video/*"
-                    className="hidden"
-                    onChange={handleImageSubmit}
-                  />
-                </label>
-              </form>
+              <div>
+                <p className="font-thin text-2xl ml-2 mr-2">
+                  Drag photos and videos here
+                </p>
+                <form
+                  className="flex items-center justify-center mt-4 mb-2"
+                  onSubmit={handleSubmit}
+                >
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                  <label className="px-3 py-1 rounded-md bg-blue-medium text-white text-sm font-semibold">
+                    Select from computer
+                    <input
+                      type="file"
+                      accept="image/*,video/*"
+                      className="hidden"
+                      onChange={handleImageSubmit}
+                    />
+                  </label>
+                </form>
+              </div>
             </>
           )}
           {post.imageSrc !== null && (

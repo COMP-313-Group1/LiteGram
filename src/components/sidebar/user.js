@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { memo } from 'react';
+import { DEFAULT_IMAGE_PATH } from '../../constants/paths';
 
 export default function User({ username, fullName, test }) {
   return !username || !fullName ? (
@@ -17,6 +18,9 @@ export default function User({ username, fullName, test }) {
           className="rounded-full w-16 flex mr-3"
           src={`/images/avatars/${username}.jpg`}
           alt=""
+          onError={(e) => {
+            e.target.src = DEFAULT_IMAGE_PATH;
+          }}
         />
       </div>
       <div className="col-span-3">
